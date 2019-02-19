@@ -47,6 +47,9 @@ def insertion_sort(arr):
 
 
 # STRETCH: implement the Bubble Sort function below
+# Walk through the array, comparing each element to its right neighbor. If it's
+# smaller than that neighbor, swap the elements. Repeat this until you make it
+# through an entire pass without any swaps.
 def bubble_sort(arr):
 
     return arr
