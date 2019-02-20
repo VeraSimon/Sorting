@@ -30,17 +30,17 @@ The process of performing a binary search has a couple of extra steps. First, th
 A visualization comparing these two algorithms is shown below.
 ![binary v sequential](https://www.mathwarehouse.com/programming/images/binary-vs-linear-search/binary-and-linear-search-animations.gif "Binary v Sequential Search")
 
-#### Your Task 
+#### Your Task
 - (STRETCH) Complete some or all of the three functions in `searching.py`
 
 #### Runtimes
 
 These two searching strategies have very different runtimes.
 
-**Linear Search:** O(n)  
+**Linear Search:** O(n)
 **Binary Search:** O(log(n))
 
-Looking at the above runtimes, it is clear that we should be using binary search over linear search. 
+Looking at the above runtimes, it is clear that we should be using binary search over linear search.
 ***However, we cannot perform binary search if our data isn't ALREADY SORTED!***
 
 While the justification for *WHY* we want to sort our data is pretty clear, a harder question to answer is *HOW* do we want to sort our data. Over the next few days, we will explore several different sorting algorithms, examining the pros and cons of each.
@@ -50,7 +50,7 @@ While the justification for *WHY* we want to sort our data is pretty clear, a ha
 ## Iterative Sorting Algorithms
 
 ### Selection Sort
-***Selection Sort*** is an algorithm that many of you have probably used before when sorting things in your everyday lives. Imagine that you have several books you want to arrange on a shelf from shortest to tallest. You start off by looking for the shortest book, and when you find it, put it on the far left side of the shelf. Then, you look for the second shortest book and insert it directly to the right of the first book. You repeat this process, selecting the next shortest book and moving it next to the most recently placed book, until you have moved all books into the correct place. This is ***Selection Sort***.  
+***Selection Sort*** is an algorithm that many of you have probably used before when sorting things in your everyday lives. Imagine that you have several books you want to arrange on a shelf from shortest to tallest. You start off by looking for the shortest book, and when you find it, put it on the far left side of the shelf. Then, you look for the second shortest book and insert it directly to the right of the first book. You repeat this process, selecting the next shortest book and moving it next to the most recently placed book, until you have moved all books into the correct place. This is ***Selection Sort***.
 
 An example of this algorithm being applied to an array with 10 numerical elements can be seen in the video below.
 
@@ -63,7 +63,7 @@ An example of this algorithm being applied to an array with 10 numerical element
 
 2. For all indices EXCEPT the last index:
 
-    a. Loop through elements on right-hand-side 
+    a. Loop through elements on right-hand-side
     of current index and find the smallest element
 
     b. Swap the element at current index with the
@@ -108,9 +108,9 @@ Recall that the runtime complexity of an algorithm, often expressed using *Big O
 ### Insertion Sort
 Think back to class or team picture day. Everyone stands in a line facing the photographer. Starting at the left-hand side of the line, the photographer checks to make sure each person is taller than the person next to them. If they are shorter, the photographer pulls them out and shifts people over to the right until he or she finds the right spot for this person. They then insert them back into the line. This process repeats until the photographer reaches the last person on the right-hand side, who must be the tallest person in the group. This is ***Insertion Sort***.
 
-[(VIDEO) Insert-sort with Romanian folk dance](https://www.youtube.com/watch?v=ROalU379l3U) 
+[(VIDEO) Insert-sort with Romanian folk dance](https://www.youtube.com/watch?v=ROalU379l3U)
 
-[![(VIDEO) Insert-sort with Romanian folk dance](https://i.ytimg.com/vi/ROalU379l3U/hqdefault.jpg)](https://www.youtube.com/watch?v=ROalU379l3U) 
+[![(VIDEO) Insert-sort with Romanian folk dance](https://i.ytimg.com/vi/ROalU379l3U/hqdefault.jpg)](https://www.youtube.com/watch?v=ROalU379l3U)
 
 #### Algorithm
 1. Separate the first element from the rest of the array. Think about it as a sorted list of one element.
@@ -119,9 +119,9 @@ Think back to class or team picture day. Everyone stands in a line facing the ph
 
     a. Copy the item at that index into a temp variable
 
-    b. Iterate to the left until you find the correct index in the "sorted" part of the array at which this element should be inserted  
+    b. Iterate to the left until you find the correct index in the "sorted" part of the array at which this element should be inserted
     - Shift items over to the right as you iterate
-    
+
     c. When the correct index is found, copy temp into this position
 
 #### Your Task
@@ -143,7 +143,7 @@ print(arr);
 The answer to the question, "Is ***Insertion Sort*** an efficient algorithm?" is not always the same. The runtime of ***Insertion Sort*** is dependent on how close to being "in-order" the data is to begin with. In a scenario where you are performing ***Insertion Sort*** on an already or mostly sorted array, very few elements will need to be shifted over, leading to a runtime of Ω(n). However, in a worse-case scenario, where the maximum number of shifts are being performed, the runtime of this algorithm is O(n²).
 
 ### TO-DO in iterative_sorting.py
-- Complete the missing parts of `selection_sort()` 
+- Complete the missing parts of `selection_sort()`
 - Implement `insertion_sort()` in `iterative_sorting.py`
 
 ### Stretch Goals
@@ -152,9 +152,9 @@ The answer to the question, "Is ***Insertion Sort*** an efficient algorithm?" is
 - Complete the functions in `searching.py`
 
 #### Check out Bubble Sort
-- Take a look a the psuedocode for this algorithms and try implementing it in Python.
+- Take a look at the psuedocode for this algorithms and try implementing it in Python.
 
-#### There are a few "order n" sorting algorithms whose runtime will be linear, even in a worst case scenario. 
+#### There are a few "order n" sorting algorithms whose runtime will be linear, even in a worst case scenario.
 Look into Count Sort.
 - How is this algorithms different from other iterative sorting algorithms?
     - What are the advantages/disadvantages to this type of sorting algorithm?
@@ -167,7 +167,7 @@ Look into Count Sort.
 ## Day 2 - A Better Way to Sort
 
 ### Divide & Conquer
->A divide-and-conquer algorithm works by recursively breaking down a problem into two or more sub-problems of the same or related type, until these become simple enough to be solved directly.  
+>A divide-and-conquer algorithm works by recursively breaking down a problem into two or more sub-problems of the same or related type, until these become simple enough to be solved directly.
 -Wikipedia
 
 This approach can be very useful when sorting. By breaking up our original data set into subsets and recursively sorting each subset, we can obtain significant performance gains.
@@ -183,9 +183,9 @@ Recursive cases *must* be written in a way that will eventually allow us to reac
 
 ### Merge Sort
 Your boss asks you to organize an old filing cabinet with 20 years worth of financial documents. He would like things ordered chronologically. You feel overwhelemed. There are thousands of papers in this thing.
-So you decide to break this insane task up into more manageable pieces. First, you focus on organizing a single drawer. But this still has a lot of pieces of data that need to be sorted. Within the drawer, you pull out a single folder. You lay out all the contents on a table, grabbing two pieces at a time, placing the older document on top of the newer one. Then, you start merging sorted sets of documents together until the folder is done. Once all the folders have been reassembled, you order the folders correctly in the drawer. And then you put sorted drawers back into the filing cabinet. This idea of breaking a large set of data down into small pieces, sorting the pieces, then merging them back together is what ***Merge Sort*** is all about.  
+So you decide to break this insane task up into more manageable pieces. First, you focus on organizing a single drawer. But this still has a lot of pieces of data that need to be sorted. Within the drawer, you pull out a single folder. You lay out all the contents on a table, grabbing two pieces at a time, placing the older document on top of the newer one. Then, you start merging sorted sets of documents together until the folder is done. Once all the folders have been reassembled, you order the folders correctly in the drawer. And then you put sorted drawers back into the filing cabinet. This idea of breaking a large set of data down into small pieces, sorting the pieces, then merging them back together is what ***Merge Sort*** is all about.
 
-[(VIDEO) Merge-sort with Transylvanian-saxon (German) folk dance](https://www.youtube.com/watch?v=XaqR3G_NVoo)  
+[(VIDEO) Merge-sort with Transylvanian-saxon (German) folk dance](https://www.youtube.com/watch?v=XaqR3G_NVoo)
 
 [![(VIDEO) Merge-sort with Transylvanian-saxon (German) folk dance](https://i.ytimg.com/vi/XaqR3G_NVoo/hqdefault.jpg)](https://www.youtube.com/watch?v=XaqR3G_NVoo)
 
@@ -193,7 +193,7 @@ So you decide to break this insane task up into more manageable pieces. First, y
 #### Algorithm
 ```
 1. While your data set contains more than one item, split it in half
-2. Once you have gotten down to a single element, you have also *sorted* that element 
+2. Once you have gotten down to a single element, you have also *sorted* that element
    (a single element cannot be "out of order")
 3. Start merging your single lists of one element together into larger, sorted sets
 4. Repeat step 3 until the entire data set has been reassembled
@@ -236,7 +236,7 @@ def merge_sort( arr ):
 #### Real-World Applications
 Have you ever wondered how some of the languages you use actually implement their built-in `sort()` functions? Many of them actually utilize the ***Merge Sort*** algorithm! *WHY* they do so is because this sorting algorithm is reliably efficient. In all cases, regardless of how sorted the original data set might be, this algorithm will have a runtime of O(n log(n)), one of the better sorting runtimes out there.
 
-#### Your Task 
+#### Your Task
 -  (STRETCH) Try writing an *in-place* ***Merge Sort*** algorithm.
 
 ### Quick Sort
@@ -250,7 +250,7 @@ Let's think about the group photo example again. Everyone's lined up and the pho
 #### Algorithm
 ```
 1. Select a pivot. Often times this is the first or last element in a set. It can also be the middle.
-2. Move all elements smaller than the pivot to the left. 
+2. Move all elements smaller than the pivot to the left.
 3. Move all elements greater than the pivot to the right.
 4. While LHS and RHS are greater than 1, repeat steps 1-3 on each side.
 ```
